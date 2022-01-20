@@ -66,12 +66,12 @@ const Project = ({ data }) => {
             pos={"absolute"}
             top={"10"}
             left={"10"}
+            boxShadow={"2xl"}
           >
             <Image
               src={data.image}
-              alt={"ProjectName"}
+              alt={data.title}
               objectFit={"cover"}
-              boxShadow={"2xl"}
               layout="fill"
             />
           </Box>
