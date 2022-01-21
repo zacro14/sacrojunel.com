@@ -1,10 +1,10 @@
 import { Box } from "@chakra-ui/react";
-import Navbar from "./Navbar";
+import Seo from "./Seo";
 
 export default function MainLayout({ children }) {
   return (
     <>
-      <Navbar />
+      <Seo />
       <Box as={"main"}>{children}</Box>
     </>
   );
