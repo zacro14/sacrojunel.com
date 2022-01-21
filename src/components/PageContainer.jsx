@@ -2,10 +2,12 @@ import { Box } from "@chakra-ui/react";
 import Footer from "./Footer";
 import { MainGradient } from "./gradient";
 import Navbar from "./Navbar";
+import Seo from "./Seo";
 
 const PageContainer = ({ children, gradient }) => {
   return (
     <>
+      <Seo />
       <Box>
         <Navbar />
         <MainGradient />
