@@ -67,6 +67,7 @@ const Project = ({ data }) => {
             top={"10"}
             left={"10"}
             boxShadow={"2xl"}
+            bgColor={"white"}
           >
             <Image
               src={data.image}
