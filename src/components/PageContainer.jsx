@@ -7,7 +7,6 @@ import Seo from "./Seo";
 const PageContainer = ({ children, gradient }) => {
   return (
     <>
-      <Seo />
       <Box>
         <Navbar />
         <MainGradient />
