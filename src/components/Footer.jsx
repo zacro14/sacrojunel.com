@@ -3,7 +3,7 @@ import { FaFacebook, FaLinkedin, FaGithub } from "react-icons/fa";
 import {
   Box,
   Divider,
-  Grid,
+  Flex,
   GridItem,
   Heading,
   Icon,
@@ -38,26 +38,36 @@ const Footer = () => {
     <>
       <FooterGradient />
       <Divider borderColor={"whiteAlpha.300"} mt={"10"} />
-      <Box p={"20"} textAlign={"center"} as={"footer"}>
-        <Grid
-          gap={"10"}
-          gridTemplateColumns={"repeat(2, 1fr)"}
+      <Box m={{ base: "5", md: "20" }} textAlign={"center"} as={"footer"}>
+        <Flex
+          gap={{ base: "20", md: "10" }}
+          flexDir={{ base: "column", md: "row" }}
           h={"full"}
           textAlign={"start"}
         >
-          <GridItem display={"flex"} flexDir={"column"}>
+          <GridItem display={"flex"} flexDir={"column"} flex={"1"}>
             <Heading pb={"4"}>Junel Sacro</Heading>
             <Text fontSize={"large"}>
-              a front end web developer aiming to make website to{" "}
+              A{" "}
+              <Text
+                as={"span"}
+                fontSize={"x-large"}
+                fontWeight={"bold"}
+                bgGradient={"linear(to-r, purple.400, pink.200)"}
+                bgClip={"text"}
+              >
+                Front End Web Developer
+              </Text>{" "}
+              aimes to make websites wonderful and enjoyable.
             </Text>
           </GridItem>
-          <GridItem display={"flex"} flexDir={"column"}>
+          <Box display={"flex"} flexDir={"column"} flex={"1"}>
             <Heading pb={"4"}>Contact</Heading>
             <Stack
-              direction={"row"}
-              spacing={"10"}
               alignItems={"center"}
               h={"14"}
+              direction={"row"}
+              spacing={{ base: "5", md: "10" }}
             >
               {link.map((item) => (
                 <Link
@@ -70,7 +80,7 @@ const Footer = () => {
                   fontWeight={"semibold"}
                   _hover={{ textDecoration: "none" }}
                 >
-                  <Icon as={item.icon} boxSize={"8"} color={"cyan.300"} />
+                  <Icon as={item.icon} boxSize={"6"} color={"cyan.300"} />
                   <Text
                     textDecor={"underline"}
                     textUnderlineOffset={"3px"}
@@ -82,9 +92,9 @@ const Footer = () => {
                 </Link>
               ))}
             </Stack>
-          </GridItem>
-          Junel Sacro &copy; 2022
-        </Grid>
+          </Box>
+        </Flex>
+        <Text py={"10"}>Junel Sacro &copy; 2022</Text>
       </Box>
     </>
   );
