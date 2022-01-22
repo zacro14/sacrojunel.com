@@ -1,5 +1,7 @@
 import { FooterGradient } from "./gradient";
 import { FaFacebook, FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaPizzaSlice } from "react-icons/fa";
+import { BsRainbow } from "react-icons/bs";
 import {
   Box,
   Divider,
@@ -58,7 +60,9 @@ const Footer = () => {
               >
                 Front End Web Developer
               </Text>{" "}
-              aimes to make websites wonderful and enjoyable.
+              aims to make websites wonderful{" "}
+              <Icon color={"pink.300"} as={BsRainbow} /> and enjoyable{" "}
+              <Icon color={"yellow.500"} as={FaPizzaSlice} />.
             </Text>
           </GridItem>
           <Box display={"flex"} flexDir={"column"} flex={"1"}>
