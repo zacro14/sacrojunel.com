@@ -27,7 +27,7 @@ const Project = ({ data }) => {
           </Heading>
           <Text>{data.desc}</Text>
 
-          <HStack mt={"5"} spacing={"7"}>
+          <HStack pt={"5"} textUnderlineOffset={"3px"} spacing={"7"}>
             <Link
               variant={"link"}
               display={"flex"}
@@ -36,7 +36,12 @@ const Project = ({ data }) => {
               href={data.githubLink}
               isExternal
             >
-              <Icon boxSize={"6"} as={AiFillGithub} mr={"3"} />
+              <Icon
+                color={"whiteAlpha.600"}
+                boxSize={"6"}
+                as={AiFillGithub}
+                mr={"3"}
+              />
               Github
             </Link>
             <Link
@@ -47,7 +52,12 @@ const Project = ({ data }) => {
               isExternal
               href={data.websiteLink}
             >
-              <Icon boxSize={"6"} mr={"3"} as={BiGlobe} />
+              <Icon
+                color={"whiteAlpha.600"}
+                boxSize={"6"}
+                mr={"3"}
+                as={BiGlobe}
+              />
               Website
             </Link>
           </HStack>
@@ -57,7 +67,7 @@ const Project = ({ data }) => {
           flex={{ md: "1" }}
           pos={"relative"}
           bgGradient={"linear(cyan.900, black)"}
-          height={"25rem"}
+          height={{ base: "15rem", md: "25rem" }}
           overflow={"hidden"}
         >
           <Box
