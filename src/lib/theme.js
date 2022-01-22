@@ -8,6 +8,7 @@ const theme = {
         color: "white",
         minH: "100vh",
         overflowX: "hidden",
+        scrollBehavior: "smooth",
       },
     },
   },
