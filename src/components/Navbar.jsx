@@ -4,6 +4,7 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import Logo from "../../public/logo/Logo-junelsacro.png";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useRef } from "react";
 import {
   Box,
   Divider,
@@ -19,7 +20,6 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
-import { useRef } from "react";
 
 const MobileMenu = ({ items }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -44,13 +44,13 @@ const MobileMenu = ({ items }) => {
             <DrawerBody py={"10"} as={"nav"}>
               <Stack>
                 {items.map((item) => (
-                  <>
+                  <Box key={item.id}>
                     <HStack
-                      key={item.id}
                       alignItems={"center"}
                       fontSize={"lg"}
                       as={Link}
                       spacing={"7"}
+                      href={item.link}
                     >
                       <Box>
                         <Icon as={item.icon} boxSize={"5"} />
@@ -58,7 +58,7 @@ const MobileMenu = ({ items }) => {
                       <Text>{item.title}</Text>
                     </HStack>
                     <Divider variant={"dashed"} color={"whiteAlpha.200"} />
-                  </>
+                  </Box>
                 ))}
               </Stack>
             </DrawerBody>
@@ -80,10 +80,19 @@ const DesktopMenu = ({ items }) => {
         fontSize={"large"}
       >
         {items.map((item) => (
-          <Link key={item.id} px={"5"} display={"flex"} alignItems={"center"}>
+          <Stack
+            as={Link}
+            direction={"row"}
+            key={item.id}
+            px={"5"}
+            display={"flex"}
+            alignItems={"center"}
+            href={item.link || null}
+            _hover={{ textUnderlineOffset: "3px" }}
+          >
             <Icon as={item.icon} boxSize={item.size} />
             <Text pl={"1"}>{item.title}</Text>
-          </Link>
+          </Stack>
         ))}
       </Stack>
     </>
@@ -99,12 +108,14 @@ const Navbar = () => {
       title: "Projects",
       icon: IoLogoAppleAr,
       size: "6",
+      link: "#projects",
     },
     {
       id: 2,
       title: "Technologies",
       icon: RiCodeSLine,
       size: "8",
+      link: "#technologies",
     },
   ];
   return (
