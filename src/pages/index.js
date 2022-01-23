@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Seo
-        title={"Junel Sacro | - Porfolio"}
+        title={"Junel Sacro | Porfolio"}
         description={"This is the portfolio of Junel Sacro"}
       />
       <PageContainer>
