@@ -1,6 +1,6 @@
 import { IoLogoAppleAr } from "react-icons/io5";
 import { RiCodeSLine } from "react-icons/ri";
-import { HamburgerIcon } from "@chakra-ui/icons";
+import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import Logo from "../../public/logo/Logo-junelsacro.png";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -27,7 +27,12 @@ const MobileMenu = ({ items }) => {
   return (
     <>
       <Box display={{ md: "none" }} cursor={"pointer"}>
-        <HamburgerIcon boxSize={"10"} onClick={onOpen} />
+        {isOpen === false ? (
+          <HamburgerIcon boxSize={"8"} onClick={onOpen} />
+        ) : (
+          <CloseIcon boxSize={"6"} />
+        )}
+
         <Drawer
           isOpen={isOpen}
           placement="bottom"
@@ -51,6 +56,7 @@ const MobileMenu = ({ items }) => {
                       as={Link}
                       spacing={"7"}
                       href={item.link}
+                      _hover={{ textDecoration: "none" }}
                     >
                       <Box>
                         <Icon as={item.icon} boxSize={"5"} />
@@ -118,6 +124,7 @@ const Navbar = () => {
       link: "#technologies",
     },
   ];
+
   return (
     <>
       <Box as={"header"} px={{ base: "5", md: "20", lg: "20" }} py={"5"}>
@@ -129,7 +136,7 @@ const Navbar = () => {
               whileHover={{ scale: 1.2, rotate: 360, duration: 5 }}
               whileTap={{ rotate: 360 }}
             >
-              <Image src={Logo} alt="logo" layout={"fill"} />
+              <Image src={Logo} alt="Junel Sacro" layout={"fill"} />
             </MotionBox>
           </Link>
           <DesktopMenu items={navItems} />
