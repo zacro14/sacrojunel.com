@@ -9,6 +9,7 @@ const theme = {
         minH: "100vh",
         overflowX: "hidden",
         scrollBehavior: "smooth",
+        scrollPaddingTop: "32",
       },
     },
   },
