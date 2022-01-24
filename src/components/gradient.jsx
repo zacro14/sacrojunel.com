@@ -32,3 +32,19 @@ export function MainGradient(props) {
     />
   );
 }
+
+export function SpanGradient(props) {
+  return (
+    <Box
+      zIndex={0}
+      width="100%"
+      height="1400px"
+      position="absolute"
+      left="0"
+      top="700px"
+      pointerEvents="none"
+      {...props}
+      bg="linear-gradient(180deg, rgba(33, 33, 33, 0) 0%, rgb(8, 111, 131, 0.3) 45.31%, rgba(19, 19, 19, 0) 100%)"
+    />
+  );
+}
