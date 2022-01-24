@@ -9,6 +9,7 @@ import {
   Icon,
   Link,
   Stack,
+  Tag,
   Text,
 } from "@chakra-ui/react";
 
@@ -27,7 +28,21 @@ const Project = ({ data }) => {
           </Heading>
           <Text>{data.desc}</Text>
 
-          <HStack pt={"5"} textUnderlineOffset={"3px"} spacing={"7"}>
+          <HStack pt={"6"} flexWrap={"wrap"} gap={"2"} spacing={"unset"}>
+            {data.technology?.map((tech, index) => (
+              <Tag
+                key={index}
+                rounded={"full"}
+                bgColor={"whiteAlpha.300"}
+                color={"gray.100"}
+                p={"2"}
+              >
+                {tech.tech}
+              </Tag>
+            ))}
+          </HStack>
+
+          <HStack pt={"8"} textUnderlineOffset={"3px"} spacing={"7"}>
             <Link
               variant={"link"}
               display={"flex"}
@@ -71,8 +86,8 @@ const Project = ({ data }) => {
           overflow={"hidden"}
         >
           <Box
-            width="56.25rem"
-            height={"31.6rem"}
+            width={{ base: "full", md: "34.25rem" }}
+            height={{ base: "full", md: "26.6rem" }}
             pos={"absolute"}
             top={"10"}
             left={"10"}
