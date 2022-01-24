@@ -1,10 +1,10 @@
 import { IoLogoAppleAr } from "react-icons/io5";
 import { RiCodeSLine } from "react-icons/ri";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
-import Logo from "../../public/logo/Logo-junelsacro.png";
+import Logo from "../../public/logo/Logo-junelsacro-nobg.png";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Box,
   Divider,
@@ -58,7 +58,7 @@ const MobileMenu = ({ items }) => {
                       href={item.link}
                       _hover={{ textDecoration: "none" }}
                     >
-                      <Box>
+                      <Box display={"flex"} alignItems={"center"}>
                         <Icon as={item.icon} boxSize={"5"} />
                       </Box>
                       <Text>{item.title}</Text>
@@ -125,9 +125,40 @@ const Navbar = () => {
     },
   ];
 
+  const [navbar, setNavbar] = useState(false);
+
+  const scrollBehavior = () => {
+    if (window.scrollY > 0) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollBehavior);
+
+    return () => {
+      window.removeEventListener("scroll", scrollBehavior);
+    };
+  }, []);
+
   return (
     <>
-      <Box as={"header"} px={{ base: "5", md: "20", lg: "20" }} py={"5"}>
+      <Box
+        as={"header"}
+        px={{ base: "5", md: "20", lg: "20" }}
+        py={"5"}
+        pos={navbar ? "fixed" : "absolute"}
+        top={0}
+        zIndex={"2"}
+        width={"full"}
+        transition={"all 0.2s ease-in 0s "}
+        bgColor={"transparent"}
+        backdropFilter={navbar ? "saturate(180%) blur(6px)" : null}
+        borderBottom={navbar ? "1px" : null}
+        borderColor={"whiteAlpha.200"}
+      >
         <Flex alignItems={"center"} justifyContent={"space-between"}>
           <Link href="/">
             <MotionBox
