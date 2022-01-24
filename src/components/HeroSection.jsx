@@ -7,7 +7,7 @@ const MotionText = motion(Text);
 const Hero = () => {
   return (
     <>
-      <Box id={" herosection"} pt={"14"} pb={"32"}>
+      <Box id={" herosection"} pb={"28"} mt="36">
         <Stack
           textAlign={"center"}
           alignItems={"center"}
