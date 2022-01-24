@@ -14,7 +14,7 @@ export default function Home() {
         description={"This is the portfolio of Junel Sacro"}
       />
       <PageContainer>
-        <Box mx={{ base: "5", md: "20", lg: "20" }} zIndex={1}>
+        <Box mx={{ base: "5", md: "20", lg: "20" }} zIndex={1} mt={"36"}>
           <Hero />
           <ProjectsSection />
           <TechnologiesSection />
