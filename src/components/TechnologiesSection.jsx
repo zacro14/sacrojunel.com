@@ -29,7 +29,13 @@ const ItemCard = ({ item }) => {
       </Heading>
 
       {item.icon !== null ? (
-        <Stack direction={"row"} spacing={"5"} justifyContent={"center"}>
+        <Stack
+          direction={"row"}
+          alignItems={"center"}
+          justifyContent={"center"}
+          flexWrap={{ base: "wrap" }}
+          gap={"5"}
+        >
           {item.icon.map((items, index) => (
             <Box
               as={Link}
