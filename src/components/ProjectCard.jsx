@@ -81,7 +81,7 @@ const Project = ({ data }) => {
         <Box
           flex={{ md: "1" }}
           pos={"relative"}
-          bgGradient={"linear(cyan.900, black)"}
+          bgGradient={"linear(to-r, teal.200, pink.200)"}
           height={{ base: "15rem", md: "25rem" }}
           overflow={"hidden"}
         >
