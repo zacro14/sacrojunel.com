@@ -6,6 +6,7 @@ import {
   SiGit,
   SiStyledcomponents,
   SiGithub,
+  SiYarn,
 } from "react-icons/si";
 export const items = [
   {
@@ -36,6 +37,7 @@ export const items = [
         link: "https://code.visualstudio.com/",
       },
       { icon: SiGithub, color: "gray.900", link: "https://github.com/" },
+      { icon: SiYarn, color: "#2C8EBB", link: "https://yarnpkg.com/" },
     ],
   },
 ];
