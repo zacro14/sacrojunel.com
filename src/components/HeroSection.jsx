@@ -46,7 +46,6 @@ const Hero = () => {
                 bgGradient: "linear(to-b, orange.100, purple.300)",
               }}
               bgClip="text"
-              pt={"5"}
               whileHover={{ scale: 1.1 }}
             >
               A Front-End
