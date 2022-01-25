@@ -20,6 +20,7 @@ const ItemCard = ({ item }) => {
       rounded={"2xl"}
     >
       <Heading
+        as={"h3"}
         textTransform={"capitalize"}
         fontSize={"large"}
         pb={"5"}

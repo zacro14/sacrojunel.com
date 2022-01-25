@@ -19,6 +19,7 @@ const Project = ({ data }) => {
       <Flex mb={"20"} flexDir={{ base: "column", md: "row" }} gap={"20"}>
         <Stack flex={"1"}>
           <Heading
+            as={"h3"}
             bgGradient="linear(to-l, cyan.100, cyan.900)"
             bgClip="text"
             fontWeight={"bold"}
