@@ -1,7 +1,12 @@
 import { Box } from "@chakra-ui/react";
+import React from "react";
 import Seo from "./Seo";
 
-export default function MainLayout({ children }) {
+interface Children {
+  children: React.ReactNode;
+}
+
+export default function MainLayout({ children }: Children) {
   return (
     <>
       <Seo />

@@ -1,6 +1,12 @@
 import Head from "next/head";
+import React from "react";
+interface Props {
+  title?: string;
+  description?: string;
+  children?: React.ReactNode;
+}
 
-export default function Seo({ title, description, children }) {
+export default function Seo({ title, description, children }: Props) {
   return (
     <>
       <Head>

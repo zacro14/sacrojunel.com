@@ -1,10 +1,14 @@
 import { Box } from "@chakra-ui/react";
+import React from "react";
 import Footer from "./Footer";
 import { MainGradient } from "./gradient";
 import Navbar from "./Navbar";
-import Seo from "./Seo";
 
-const PageContainer = ({ children, gradient }) => {
+interface PageProps {
+  children?: React.ReactNode;
+  gradient?: string;
+}
+const PageContainer: React.FC<PageProps> = ({ children, gradient }) => {
   return (
     <>
       <Box>

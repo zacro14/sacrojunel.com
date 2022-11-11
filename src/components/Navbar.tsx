@@ -1,10 +1,10 @@
 import { IoLogoAppleAr } from "react-icons/io5";
 import { RiCodeSLine } from "react-icons/ri";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
-import Logo from "../../public/logo/Logo-junelsacro-nobg.png";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import Logo from "@/images/logo.png";
 import {
   Box,
   Divider,
@@ -21,7 +21,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 
-const MobileMenu = ({ items }) => {
+const MobileMenu = ({ items }: any) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
   return (
@@ -48,7 +48,7 @@ const MobileMenu = ({ items }) => {
           >
             <DrawerBody py={"10"} as={"nav"}>
               <Stack>
-                {items.map((item) => (
+                {items.map((item: any) => (
                   <Box key={item.id}>
                     <HStack
                       alignItems={"center"}
@@ -75,7 +75,7 @@ const MobileMenu = ({ items }) => {
   );
 };
 
-const DesktopMenu = ({ items }) => {
+const DesktopMenu = ({ items }: any) => {
   return (
     <>
       <Stack
