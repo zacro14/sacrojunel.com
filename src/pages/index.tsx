@@ -1,10 +1,9 @@
-import PageContainer from "../components/PageContainer";
-
-import Seo from "../components/Seo";
-import { Box, Heading, Stack } from "@chakra-ui/react";
-import Hero from "../components/HeroSection";
-import ProjectsSection from "../components/ProjectsSection";
-import TechnologiesSection from "../components/TechnologiesSection";
+import { Box } from "@chakra-ui/react";
+import Hero from "@/components/HeroSection";
+import Seo from "@/components/Seo";
+import ProjectsSection from "@/components/ProjectsSection";
+import TechnologiesSection from "@/components/TechnologiesSection";
+import PageContainer from "@/components/PageContainer";
 
 export default function Home() {
   return (

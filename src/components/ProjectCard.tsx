@@ -12,10 +12,25 @@ import {
   Tag,
   Text,
 } from "@chakra-ui/react";
+import React from "react";
+import { Props } from "framer-motion/types/types";
+import { motion } from "framer-motion";
 
-const Project = ({ data }) => {
+export interface ProjectProps {
+  title: string;
+  desc: string;
+  technology: string[];
+  githubLink: string;
+  websiteLink: string;
+  image: any;
+}
+const Project = (data: ProjectProps) => {
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <Flex mb={"20"} flexDir={{ base: "column", md: "row" }} gap={"20"}>
         <Stack flex={"1"}>
           <Heading
@@ -29,7 +44,7 @@ const Project = ({ data }) => {
           <Text>{data.desc}</Text>
 
           <HStack pt={"6"} flexWrap={"wrap"} gap={"2"} spacing={"unset"}>
-            {data.technology?.map((tech, index) => (
+            {data.technology?.map((tech: any, index: number) => (
               <Tag
                 key={index}
                 rounded={"full"}
@@ -103,7 +118,7 @@ const Project = ({ data }) => {
           </Box>
         </Box>
       </Flex>
-    </>
+    </motion.div>
   );
 };
 
