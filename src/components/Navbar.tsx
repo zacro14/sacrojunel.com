@@ -18,12 +18,12 @@ import {
   Stack,
   Text,
   useDisclosure,
+  Link,
 } from "@chakra-ui/react";
-import Link from "next/link";
 
 const MobileMenu = ({ items }: any) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = useRef();
+  const btnRef = useRef<HTMLButtonElement>(null);
   return (
     <>
       <Box display={{ md: "none" }} cursor={"pointer"}>
@@ -49,7 +49,7 @@ const MobileMenu = ({ items }: any) => {
             <DrawerBody py={"10"} as={"nav"}>
               <Stack>
                 {items.map((item: any) => (
-                  <Link key={item.id} href={item.link} passHref>
+                  <Link key={item.id} href={item.link}>
                     <>
                       <HStack
                         alignItems={"center"}
@@ -86,7 +86,7 @@ const DesktopMenu = ({ items }: any) => {
         fontSize={"large"}
       >
         {items.map((item: any) => (
-          <Link key={item.id} href={item.link || null} passHref>
+          <Link key={item.id} href={item.link || null}>
             <Stack
               direction={"row"}
               px={"5"}
@@ -159,7 +159,7 @@ export const Navbar = () => {
         borderColor={"whiteAlpha.200"}
       >
         <Flex alignItems={"center"} justifyContent={"space-between"}>
-          <Link href="/" passHref>
+          <Link href="/">
             <MotionBox
               pos={"relative"}
               boxSize={{ base: "20", md: "24" }}
