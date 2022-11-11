@@ -1,5 +1,11 @@
 import Head from "next/head";
 import React from "react";
+
+/**
+ * @title - title of the page
+ * @description - description of the page
+ */
+
 interface Props {
   title?: string;
   description?: string;

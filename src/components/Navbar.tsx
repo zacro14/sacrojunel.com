@@ -15,11 +15,11 @@ import {
   Flex,
   HStack,
   Icon,
-  Link,
   Stack,
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
+import Link from "next/link";
 
 const MobileMenu = ({ items }: any) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -49,22 +49,22 @@ const MobileMenu = ({ items }: any) => {
             <DrawerBody py={"10"} as={"nav"}>
               <Stack>
                 {items.map((item: any) => (
-                  <Box key={item.id}>
-                    <HStack
-                      alignItems={"center"}
-                      fontSize={"lg"}
-                      as={Link}
-                      spacing={"7"}
-                      href={item.link}
-                      _hover={{ textDecoration: "none" }}
-                    >
-                      <Box display={"flex"} alignItems={"center"}>
-                        <Icon as={item.icon} boxSize={"5"} />
-                      </Box>
-                      <Text>{item.title}</Text>
-                    </HStack>
-                    <Divider variant={"dashed"} color={"whiteAlpha.200"} />
-                  </Box>
+                  <Link key={item.id} href={item.link} passHref>
+                    <>
+                      <HStack
+                        alignItems={"center"}
+                        fontSize={"lg"}
+                        spacing={"7"}
+                        _hover={{ textDecoration: "none" }}
+                      >
+                        <Box display={"flex"} alignItems={"center"}>
+                          <Icon as={item.icon} boxSize={"5"} />
+                        </Box>
+                        <Text>{item.title}</Text>
+                      </HStack>
+                      <Divider variant={"dashed"} color={"whiteAlpha.200"} />
+                    </>
+                  </Link>
                 ))}
               </Stack>
             </DrawerBody>
@@ -85,20 +85,19 @@ const DesktopMenu = ({ items }: any) => {
         fontWeight={"semibold"}
         fontSize={"large"}
       >
-        {items.map((item) => (
-          <Stack
-            as={Link}
-            direction={"row"}
-            key={item.id}
-            px={"5"}
-            display={"flex"}
-            alignItems={"center"}
-            href={item.link || null}
-            _hover={{ textUnderlineOffset: "3px" }}
-          >
-            <Icon as={item.icon} boxSize={item.size} />
-            <Text pl={"1"}>{item.title}</Text>
-          </Stack>
+        {items.map((item: any) => (
+          <Link key={item.id} href={item.link || null} passHref>
+            <Stack
+              direction={"row"}
+              px={"5"}
+              display={"flex"}
+              alignItems={"center"}
+              _hover={{ textUnderlineOffset: "3px" }}
+            >
+              <Icon as={item.icon} boxSize={item.size} />
+              <Text pl={"1"}>{item.title}</Text>
+            </Stack>
+          </Link>
         ))}
       </Stack>
     </>
@@ -107,7 +106,7 @@ const DesktopMenu = ({ items }: any) => {
 
 const MotionBox = motion(Box);
 
-const Navbar = () => {
+export const Navbar = () => {
   const navItems = [
     {
       id: 1,
@@ -160,7 +159,7 @@ const Navbar = () => {
         borderColor={"whiteAlpha.200"}
       >
         <Flex alignItems={"center"} justifyContent={"space-between"}>
-          <Link href="/">
+          <Link href="/" passHref>
             <MotionBox
               pos={"relative"}
               boxSize={{ base: "20", md: "24" }}
@@ -177,5 +176,3 @@ const Navbar = () => {
     </>
   );
 };
-
-export default Navbar;

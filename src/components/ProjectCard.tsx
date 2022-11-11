@@ -13,7 +13,6 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React from "react";
-import { Props } from "framer-motion/types/types";
 import { motion } from "framer-motion";
 
 export interface ProjectProps {

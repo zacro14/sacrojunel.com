@@ -1,8 +1,7 @@
 import { Box, Heading, Stack } from "@chakra-ui/react";
-import { project } from "../data/projects";
 import { SpanGradient } from "./gradient";
-import { AnimatePresence } from "framer-motion";
 import Project from "./ProjectCard";
+import { project } from "../data/projects";
 
 const ProjectsSection = () => {
   return (

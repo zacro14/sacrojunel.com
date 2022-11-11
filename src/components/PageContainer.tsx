@@ -1,14 +1,13 @@
 import { Box } from "@chakra-ui/react";
 import React from "react";
-import Footer from "./Footer";
+import { Footer, Navbar } from "@/components/index";
 import { MainGradient } from "./gradient";
-import Navbar from "./Navbar";
 
 interface PageProps {
   children?: React.ReactNode;
   gradient?: string;
 }
-const PageContainer: React.FC<PageProps> = ({ children, gradient }) => {
+export const PageContainer: React.FC<PageProps> = ({ children, gradient }) => {
   return (
     <>
       <Box>
@@ -23,5 +22,3 @@ const PageContainer: React.FC<PageProps> = ({ children, gradient }) => {
     </>
   );
 };
-
-export default PageContainer;
