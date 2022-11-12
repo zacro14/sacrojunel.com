@@ -14,7 +14,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-const Footer = () => {
+export const Footer = () => {
   const link = [
     {
       id: 1,
@@ -103,5 +103,3 @@ const Footer = () => {
     </>
   );
 };
-
-export default Footer;

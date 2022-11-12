@@ -1,8 +1,8 @@
 import { Box, Heading, Stack } from "@chakra-ui/react";
-import { project } from "../data/projects";
 import { SpanGradient } from "./gradient";
-import { AnimatePresence } from "framer-motion";
 import Project from "./ProjectCard";
+import { project } from "../data/projects";
+import { IProject } from "src/interface/projects.interface";
 
 const ProjectsSection = () => {
   return (
@@ -14,7 +14,7 @@ const ProjectsSection = () => {
         </Heading>
         <Box mt={"16"}>
           <Stack>
-            {project.map((project: any) => (
+            {project.map((project: IProject) => (
               <Project key={project.id} {...project} />
             ))}
           </Stack>

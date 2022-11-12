@@ -3,7 +3,7 @@ import Hero from "@/components/HeroSection";
 import Seo from "@/components/Seo";
 import ProjectsSection from "@/components/ProjectsSection";
 import TechnologiesSection from "@/components/TechnologiesSection";
-import PageContainer from "@/components/PageContainer";
+import { PageContainer } from "@/components/index";
 
 export default function Home() {
   return (

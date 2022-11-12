@@ -15,56 +15,52 @@ import {
   Flex,
   HStack,
   Icon,
-  Link,
   Stack,
   Text,
   useDisclosure,
+  Link,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 
 const MobileMenu = ({ items }: any) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = useRef();
   return (
     <>
-      <Box display={{ md: "none" }} cursor={"pointer"}>
-        {isOpen === false ? (
-          <HamburgerIcon boxSize={"8"} onClick={onOpen} />
-        ) : (
-          <CloseIcon boxSize={"6"} />
-        )}
-
+      <Box display={{ md: "none", lg: "none" }} cursor={"pointer"}>
+        <HamburgerIcon boxSize={"8"} onClick={onOpen} />
         <Drawer
           isOpen={isOpen}
-          placement="bottom"
+          placement="right"
           onClose={onClose}
-          finalFocusRef={btnRef}
-          size={"sm"}
+          size={"full"}
         >
           <DrawerOverlay />
           <DrawerContent
             bgColor={"gray.800"}
-            roundedTop={"lg"}
             display={{ base: "block", md: "none", lg: "none" }}
           >
-            <DrawerBody py={"10"} as={"nav"}>
+            <DrawerBody as={"nav"}>
+              <Flex justifyContent={"flex-end"} py={"5"}>
+                <CloseIcon boxSize={"5"} onClick={onClose} />
+              </Flex>
               <Stack>
                 {items.map((item: any) => (
-                  <Box key={item.id}>
-                    <HStack
-                      alignItems={"center"}
-                      fontSize={"lg"}
-                      as={Link}
-                      spacing={"7"}
-                      href={item.link}
-                      _hover={{ textDecoration: "none" }}
-                    >
-                      <Box display={"flex"} alignItems={"center"}>
-                        <Icon as={item.icon} boxSize={"5"} />
-                      </Box>
-                      <Text>{item.title}</Text>
-                    </HStack>
-                    <Divider variant={"dashed"} color={"whiteAlpha.200"} />
-                  </Box>
+                  <Link key={item.id} href={item.link}>
+                    <>
+                      <HStack
+                        alignItems={"center"}
+                        fontSize={"lg"}
+                        spacing={"7"}
+                        _hover={{ textDecoration: "none" }}
+                      >
+                        <Box display={"flex"} alignItems={"center"}>
+                          <Icon as={item.icon} boxSize={"5"} />
+                        </Box>
+                        <Text>{item.title}</Text>
+                      </HStack>
+                      <Divider variant={"dashed"} color={"whiteAlpha.200"} />
+                    </>
+                  </Link>
                 ))}
               </Stack>
             </DrawerBody>
@@ -85,20 +81,19 @@ const DesktopMenu = ({ items }: any) => {
         fontWeight={"semibold"}
         fontSize={"large"}
       >
-        {items.map((item) => (
-          <Stack
-            as={Link}
-            direction={"row"}
-            key={item.id}
-            px={"5"}
-            display={"flex"}
-            alignItems={"center"}
-            href={item.link || null}
-            _hover={{ textUnderlineOffset: "3px" }}
-          >
-            <Icon as={item.icon} boxSize={item.size} />
-            <Text pl={"1"}>{item.title}</Text>
-          </Stack>
+        {items.map((item: any) => (
+          <Link key={item.id} href={item.link || null}>
+            <Stack
+              direction={"row"}
+              px={"5"}
+              display={"flex"}
+              alignItems={"center"}
+              _hover={{ textUnderlineOffset: "3px" }}
+            >
+              <Icon as={item.icon} boxSize={item.size} />
+              <Text pl={"1"}>{item.title}</Text>
+            </Stack>
+          </Link>
         ))}
       </Stack>
     </>
@@ -107,7 +102,7 @@ const DesktopMenu = ({ items }: any) => {
 
 const MotionBox = motion(Box);
 
-const Navbar = () => {
+export const Navbar = () => {
   const navItems = [
     {
       id: 1,
@@ -128,7 +123,7 @@ const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
 
   const scrollBehavior = () => {
-    if (window.scrollY > 0) {
+    if (window.scrollY >= 0) {
       setNavbar(true);
     } else {
       setNavbar(false);
@@ -155,8 +150,8 @@ const Navbar = () => {
         width={"full"}
         transition={"all 0.2s ease-in 0s "}
         bgColor={"transparent"}
-        backdropFilter={navbar ? "saturate(180%) blur(6px)" : null}
-        borderBottom={navbar ? "1px" : null}
+        backdropFilter={navbar ? "saturate(180%) blur(6px)" : undefined}
+        borderBottom={navbar ? "1px" : undefined}
         borderColor={"whiteAlpha.200"}
       >
         <Flex alignItems={"center"} justifyContent={"space-between"}>
@@ -177,5 +172,3 @@ const Navbar = () => {
     </>
   );
 };
-
-export default Navbar;
