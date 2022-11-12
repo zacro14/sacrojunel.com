@@ -6,6 +6,11 @@ import TechnologiesSection from "@/components/TechnologiesSection";
 import { PageContainer } from "@/components/index";
 
 export default function Home() {
+  const envi = {
+    env: process.env.GA_ID,
+  };
+
+  console.log(envi);
   return (
     <>
       <Seo
