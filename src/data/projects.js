@@ -22,4 +22,19 @@ export const project = [
     websiteLink: "https://zhaks-foody.vercel.app/",
     technology: [{ tech: "react" }, { tech: "next.js" }, { tech: "chakra ui" }],
   },
+  {
+    id: 3,
+    title: "MusicPhile",
+    desc: "Music App",
+    image: "/images/musicphile.png",
+    githubLink: "https://github.com/zacro14/musicphile",
+    websiteLink:
+      "https://transpocalculator-frontend-mifvouek6-zacro14.vercel.app/en-US",
+    technology: [
+      { tech: "react" },
+      { tech: "next.js" },
+      { tech: "tailwind" },
+      { tech: "Typescript" },
+    ],
+  },
 ];

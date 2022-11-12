@@ -92,6 +92,7 @@ const Project = (data: IProject) => {
           bgGradient={"linear(to-r, teal.200, pink.200)"}
           height={{ base: "15rem", md: "25rem" }}
           overflow={"hidden"}
+          borderRadius={"lg"}
         >
           <Box
             width={{ base: "full", md: "34.25rem" }}
