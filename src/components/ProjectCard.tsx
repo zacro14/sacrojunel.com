@@ -14,16 +14,9 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { motion } from "framer-motion";
+import { IProject } from "src/interface/projects.interface";
 
-export interface ProjectProps {
-  title: string;
-  desc: string;
-  technology: string[];
-  githubLink: string;
-  websiteLink: string;
-  image: any;
-}
-const Project = (data: ProjectProps) => {
+const Project = (data: IProject) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}

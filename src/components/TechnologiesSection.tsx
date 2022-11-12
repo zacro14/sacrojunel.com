@@ -1,4 +1,6 @@
-import { items } from "../data/tecnologies";
+import React from "react";
+import { items } from "@/data/tecnologies";
+import { IIcon, Technology } from "src/interface/technology.interface";
 import {
   Box,
   Container,
@@ -10,7 +12,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-const ItemCard = ({ item }) => {
+const ItemCard: React.FC<Technology> = ({ ...item }) => {
   return (
     <Container
       flex={"1"}
@@ -37,7 +39,7 @@ const ItemCard = ({ item }) => {
           flexWrap={{ base: "wrap" }}
           gap={"5"}
         >
-          {item.icon.map((items, index) => (
+          {item.icon.map((icon: IIcon, index: number) => (
             <Box
               as={Link}
               key={index}
@@ -45,9 +47,9 @@ const ItemCard = ({ item }) => {
               rounded={"2xl"}
               padding={"5"}
               isExternal
-              href={items.link}
+              href={icon.link}
             >
-              <Icon as={items.icon} boxSize={"10"} color={items.color}></Icon>
+              <Icon as={icon.icon} boxSize={"10"} color={icon.color}></Icon>
             </Box>
           ))}
         </Stack>
@@ -73,7 +75,7 @@ const TechnologiesSection = () => {
           mt={"16"}
         >
           {items.map((item, index) => (
-            <ItemCard key={index} item={item} />
+            <ItemCard key={index} {...item} />
           ))}
         </Flex>
       </Box>
