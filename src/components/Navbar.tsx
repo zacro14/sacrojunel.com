@@ -154,8 +154,8 @@ export const Navbar = () => {
         width={"full"}
         transition={"all 0.2s ease-in 0s "}
         bgColor={"transparent"}
-        backdropFilter={navbar ? "saturate(180%) blur(6px)" : null}
-        borderBottom={navbar ? "1px" : null}
+        backdropFilter={navbar ? "saturate(180%) blur(6px)" : undefined}
+        borderBottom={navbar ? "1px" : undefined}
         borderColor={"whiteAlpha.200"}
       >
         <Flex alignItems={"center"} justifyContent={"space-between"}>
