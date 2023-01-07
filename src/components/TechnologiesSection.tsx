@@ -21,17 +21,11 @@ const ItemCard: React.FC<Technology> = ({ ...item }) => {
       p={"5"}
       rounded={"2xl"}
     >
-      <Heading
-        as={"h3"}
-        textTransform={"capitalize"}
-        fontSize={"large"}
-        pb={"5"}
-        textAlign={"center"}
-      >
+      <Heading as={"h3"} fontSize={"large"} pb={"5"} textAlign={"center"}>
         {item.title}
       </Heading>
 
-      {item.icon !== null ? (
+      {item.icon !== null && (
         <Stack
           direction={"row"}
           alignItems={"center"}
@@ -53,7 +47,7 @@ const ItemCard: React.FC<Technology> = ({ ...item }) => {
             </Box>
           ))}
         </Stack>
-      ) : null}
+      )}
     </Container>
   );
 };
