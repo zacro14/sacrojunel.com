@@ -7,24 +7,25 @@ import {
   SiStyledcomponents,
   SiGithub,
   SiYarn,
+  SiTypescript,
+  SiJavascript,
+  SiTailwindcss,
 } from "react-icons/si";
 export const items = [
   {
-    title: "Front End",
+    title: "Technologies and Programming Language",
     icon: [
-      { icon: FaReact, color: "#1788AD", link: "https://reactjs.org/" },
       { icon: SiNextdotjs, color: "gray.900", link: "https://nextjs.org/" },
+      { icon: SiTypescript, color: "blue.500" },
+      { icon: SiJavascript, color: "yellow.500" },
     ],
   },
   {
     title: "Library",
     icon: [
       { icon: SiChakraui, color: "#65CACC", link: "https://chakra-ui.com/" },
-      {
-        icon: SiStyledcomponents,
-        color: "#9B653D",
-        link: "https://styled-components.com/",
-      },
+      { icon: SiTailwindcss, color: "rgb(56, 189, 248)" },
+      { icon: FaReact, color: "#1788AD", link: "https://reactjs.org/" },
     ],
   },
   {
