@@ -34,7 +34,7 @@ const Hero = () => {
               Junel Sacro
             </Text>
             <Divider border={"1px"} />
-            <Box display={"flex"} gap={"4"}>
+            <Box display={"flex"} gap={{ base: "2", md: "4", lg: "4" }}>
               <MotionText
                 as={"span"}
                 bgGradient="linear(to-l, cyan.100, cyan.800)"
@@ -43,13 +43,14 @@ const Hero = () => {
                 }}
                 bgClip="text"
                 whileHover={{ scale: 1.1 }}
-                f
               >
-                <Text fontSize={"5xl"}>A Front-End</Text>
+                <Text fontSize={{ base: "4xl", md: "5xl", lg: "5xl" }}>
+                  A Front-End
+                </Text>
               </MotionText>
               <Text
                 as={"span"}
-                fontSize={"5xl"}
+                fontSize={{ base: "4xl", md: "5xl", lg: "5xl" }}
                 bgGradient="linear(to-l, cyan.100, cyan.800)"
                 bgClip={"text"}
               >
