@@ -83,7 +83,7 @@ const DesktopMenu = ({ items }: any) => {
             _hover={{ textUnderlineOffset: "3px" }}
           >
             <Icon as={item.icon} boxSize={item.size} />
-            <Text pl={"1"} _hover={{ color: "teal.700" }}>
+            <Text pl={"1"} _hover={{ color: "teal.600" }}>
               {item.title}
             </Text>
           </Stack>

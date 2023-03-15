@@ -95,7 +95,7 @@ const Project = (data: IProject) => {
           borderRadius={"lg"}
         >
           <Box
-            width={{ base: "full", md: "34.25rem" }}
+            width={{ base: "full", md: "34.25rem", lg: "full" }}
             height={{ base: "full", md: "26.6rem" }}
             pos={"absolute"}
             top={"10"}
