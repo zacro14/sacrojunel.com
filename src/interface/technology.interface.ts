@@ -1,5 +1,10 @@
+import React from "react";
+
 export interface IIcon {
-  [key: string]: string | any;
+  name: string;
+  color: string;
+  link?: string;
+  icon: any;
 }
 
 export interface Technology {
