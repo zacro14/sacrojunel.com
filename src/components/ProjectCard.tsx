@@ -90,7 +90,7 @@ const Project = (data: IProject) => {
           flex={{ md: "1" }}
           pos={"relative"}
           bgGradient={"linear(to-r, teal.200, pink.200)"}
-          height={{ base: "15rem", md: "25rem" }}
+          height={{ base: "80", md: "25rem" }}
           overflow={"hidden"}
           borderRadius={"lg"}
         >
