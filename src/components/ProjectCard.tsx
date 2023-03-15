@@ -90,23 +90,25 @@ const Project = (data: IProject) => {
           flex={{ md: "1" }}
           pos={"relative"}
           bgGradient={"linear(to-r, teal.200, pink.200)"}
-          height={{ base: "15rem", md: "25rem" }}
+          height={{ base: "80", md: "25rem" }}
           overflow={"hidden"}
           borderRadius={"lg"}
         >
           <Box
-            width={{ base: "full", md: "34.25rem" }}
+            width={{ base: "full", md: "34.25rem", lg: "full" }}
             height={{ base: "full", md: "26.6rem" }}
             pos={"absolute"}
             top={"10"}
             left={"10"}
             boxShadow={"2xl"}
             bgColor={"white"}
+            rounded={"md"}
           >
             <Image
               src={data.image}
               alt={data.title}
               objectFit={"cover"}
+              objectPosition={"-17%"}
               layout="fill"
             />
           </Box>

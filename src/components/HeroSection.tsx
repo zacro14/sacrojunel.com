@@ -8,11 +8,7 @@ const Hero = () => {
   return (
     <>
       <Box id={" herosection"} pb={"28"} mt="36">
-        <Stack
-          textAlign={"center"}
-          alignItems={"center"}
-          justifyContent={"center"}
-        >
+        <Stack alignItems={"start"} justifyContent={"start"}>
           <Heading
             fontWeight={{ base: "normal", md: "medium" }}
             letterSpacing={"widest"}
@@ -25,7 +21,6 @@ const Hero = () => {
           <Heading
             display={"flex"}
             flexDir={"column"}
-            justifyContent={"center"}
             as={"h1"}
             fontSize={{ base: "4xl", md: "6xl", lg: "6xl" }}
             letterSpacing={"tight"}
@@ -39,24 +34,29 @@ const Hero = () => {
               Junel Sacro
             </Text>
             <Divider border={"1px"} />
-            <MotionText
-              as={"span"}
-              bgGradient="linear(to-l, cyan.100, cyan.800)"
-              _hover={{
-                bgGradient: "linear(to-b, orange.100, purple.300)",
-              }}
-              bgClip="text"
-              whileHover={{ scale: 1.1 }}
-            >
-              A Front-End
-            </MotionText>
-            <Text
-              as={"span"}
-              bgGradient="linear(to-l, cyan.100, cyan.800)"
-              bgClip={"text"}
-            >
-              Web Developer
-            </Text>
+            <Box display={"flex"} gap={{ base: "2", md: "4", lg: "4" }}>
+              <MotionText
+                as={"span"}
+                bgGradient="linear(to-l, cyan.100, cyan.800)"
+                _hover={{
+                  bgGradient: "linear(to-b, orange.100, purple.300)",
+                }}
+                bgClip="text"
+                whileHover={{ scale: 1.1 }}
+              >
+                <Text fontSize={{ base: "4xl", md: "5xl", lg: "5xl" }}>
+                  A Front-End
+                </Text>
+              </MotionText>
+              <Text
+                as={"span"}
+                fontSize={{ base: "4xl", md: "5xl", lg: "5xl" }}
+                bgGradient="linear(to-l, cyan.100, cyan.800)"
+                bgClip={"text"}
+              >
+                Web Developer
+              </Text>
+            </Box>
           </Heading>
         </Stack>
       </Box>

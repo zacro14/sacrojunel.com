@@ -14,7 +14,7 @@ const ProjectsSection = () => {
         </Heading>
         <Box mt={"16"}>
           <Stack>
-            {project.map((project: IProject) => (
+            {project.reverse().map((project: IProject) => (
               <Project key={project.id} {...project} />
             ))}
           </Stack>
