@@ -10,7 +10,7 @@ interface PageProps {
 export const PageContainer: React.FC<PageProps> = ({ children, gradient }) => {
   return (
     <>
-      <Box>
+      <Box mx={{ base: "5", md: "20", lg: "56" }}>
         <Navbar />
         <MainGradient />
         {gradient}

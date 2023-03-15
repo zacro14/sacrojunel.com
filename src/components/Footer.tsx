@@ -40,12 +40,12 @@ export const Footer = () => {
     <>
       <FooterGradient />
       <Divider borderColor={"whiteAlpha.300"} mt={"10"} />
-      <Box m={{ base: "5", md: "20" }} textAlign={"center"} as={"footer"}>
+      <Box m={{ base: "5" }} textAlign={"center"} as={"footer"}>
         <Flex
           gap={{ base: "20", md: "10" }}
           flexDir={{ base: "column", md: "row" }}
-          h={"full"}
           textAlign={"start"}
+          justifyContent={"space-between"}
         >
           <GridItem display={"flex"} flexDir={"column"} flex={"1"}>
             <Heading pb={"4"}>Junel Sacro</Heading>
@@ -66,11 +66,14 @@ export const Footer = () => {
             </Text>
           </GridItem>
           <Box display={"flex"} flexDir={"column"} flex={"1"}>
-            <Heading pb={"4"}>Contact</Heading>
+            <Heading pb={"4"} textAlign={"center"}>
+              Contact
+            </Heading>
             <Stack
               alignItems={"center"}
               h={"14"}
               direction={"row"}
+              justifyContent={"flex-end"}
               spacing={{ base: "5", md: "10" }}
             >
               {link.map((item) => (

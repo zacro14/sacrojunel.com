@@ -102,11 +102,13 @@ const Project = (data: IProject) => {
             left={"10"}
             boxShadow={"2xl"}
             bgColor={"white"}
+            rounded={"md"}
           >
             <Image
               src={data.image}
               alt={data.title}
               objectFit={"cover"}
+              objectPosition={"-17%"}
               layout="fill"
             />
           </Box>

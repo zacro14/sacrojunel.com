@@ -25,78 +25,71 @@ import {
 const MobileMenu = ({ items }: any) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <>
-      <Box display={{ md: "none", lg: "none" }} cursor={"pointer"}>
-        <HamburgerIcon boxSize={"8"} onClick={onOpen} />
-        <Drawer
-          isOpen={isOpen}
-          placement="right"
-          onClose={onClose}
-          size={"full"}
+    <Box display={{ md: "none", lg: "none" }} cursor={"pointer"}>
+      <HamburgerIcon boxSize={"8"} onClick={onOpen} />
+      <Drawer isOpen={isOpen} placement="right" onClose={onClose} size={"full"}>
+        <DrawerOverlay />
+        <DrawerContent
+          bgColor={"gray.800"}
+          display={{ base: "block", md: "none", lg: "none" }}
         >
-          <DrawerOverlay />
-          <DrawerContent
-            bgColor={"gray.800"}
-            display={{ base: "block", md: "none", lg: "none" }}
-          >
-            <DrawerBody as={"nav"}>
-              <Flex justifyContent={"flex-end"} py={"5"}>
-                <CloseIcon boxSize={"5"} onClick={onClose} />
-              </Flex>
-              <Stack>
-                {items.map((item: any) => (
-                  <Link key={item.id} href={item.link}>
-                    <>
-                      <HStack
-                        alignItems={"center"}
-                        fontSize={"lg"}
-                        spacing={"7"}
-                        _hover={{ textDecoration: "none" }}
-                      >
-                        <Box display={"flex"} alignItems={"center"}>
-                          <Icon as={item.icon} boxSize={"5"} />
-                        </Box>
-                        <Text>{item.title}</Text>
-                      </HStack>
-                      <Divider variant={"dashed"} color={"whiteAlpha.200"} />
-                    </>
-                  </Link>
-                ))}
-              </Stack>
-            </DrawerBody>
-          </DrawerContent>
-        </Drawer>
-      </Box>
-    </>
+          <DrawerBody as={"nav"}>
+            <Flex justifyContent={"flex-end"} py={"5"}>
+              <CloseIcon boxSize={"5"} onClick={onClose} />
+            </Flex>
+            <Stack>
+              {items.map((item: any) => (
+                <Link key={item.id} href={item.link}>
+                  <>
+                    <HStack
+                      alignItems={"center"}
+                      fontSize={"lg"}
+                      spacing={"7"}
+                      _hover={{ textDecoration: "none" }}
+                    >
+                      <Box display={"flex"} alignItems={"center"}>
+                        <Icon as={item.icon} boxSize={"5"} />
+                      </Box>
+                      <Text>{item.title}</Text>
+                    </HStack>
+                    <Divider variant={"dashed"} color={"whiteAlpha.200"} />
+                  </>
+                </Link>
+              ))}
+            </Stack>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
+    </Box>
   );
 };
 
 const DesktopMenu = ({ items }: any) => {
   return (
-    <>
-      <Stack
-        display={{ base: "none", md: "flex" }}
-        direction={"row"}
-        as={"nav"}
-        fontWeight={"semibold"}
-        fontSize={"large"}
-      >
-        {items.map((item: any) => (
-          <Link key={item.id} href={item.link || null}>
-            <Stack
-              direction={"row"}
-              px={"5"}
-              display={"flex"}
-              alignItems={"center"}
-              _hover={{ textUnderlineOffset: "3px" }}
-            >
-              <Icon as={item.icon} boxSize={item.size} />
-              <Text pl={"1"}>{item.title}</Text>
-            </Stack>
-          </Link>
-        ))}
-      </Stack>
-    </>
+    <Stack
+      display={{ base: "none", md: "flex" }}
+      direction={"row"}
+      as={"nav"}
+      fontWeight={"semibold"}
+      fontSize={"large"}
+    >
+      {items.map((item: any) => (
+        <Link key={item.id} href={item.link || null}>
+          <Stack
+            direction={"row"}
+            px={"5"}
+            display={"flex"}
+            alignItems={"center"}
+            _hover={{ textUnderlineOffset: "3px" }}
+          >
+            <Icon as={item.icon} boxSize={item.size} />
+            <Text pl={"1"} _hover={{ color: "teal.700" }}>
+              {item.title}
+            </Text>
+          </Stack>
+        </Link>
+      ))}
+    </Stack>
   );
 };
 
@@ -139,36 +132,33 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <>
-      <Box
-        as={"header"}
-        px={{ base: "5", md: "20", lg: "20" }}
-        py={"5"}
-        pos={navbar ? "fixed" : "absolute"}
-        top={0}
-        zIndex={"2"}
-        width={"full"}
-        transition={"all 0.2s ease-in 0s "}
-        bgColor={"transparent"}
-        backdropFilter={navbar ? "saturate(180%) blur(6px)" : undefined}
-        borderBottom={navbar ? "1px" : undefined}
-        borderColor={"whiteAlpha.200"}
-      >
-        <Flex alignItems={"center"} justifyContent={"space-between"}>
-          <Link href="/">
-            <MotionBox
-              pos={"relative"}
-              boxSize={{ base: "20", md: "24" }}
-              whileHover={{ scale: 1.2, rotate: 360, duration: 5 }}
-              whileTap={{ rotate: 360 }}
-            >
-              <Image src={Logo} alt="Junel Sacro" layout={"fill"} />
-            </MotionBox>
-          </Link>
-          <DesktopMenu items={navItems} />
-          <MobileMenu items={navItems} />
-        </Flex>
-      </Box>
-    </>
+    <Box
+      as={"header"}
+      py={"5"}
+      // pos={navbar ? "absolute" : "fixed"}
+      top={0}
+      zIndex={"2"}
+      width={"full"}
+      transition={"all 0.2s ease-in 0s "}
+      bgColor={"transparent"}
+      backdropFilter={navbar ? "saturate(180%) blur(6px)" : undefined}
+      borderBottom={navbar ? "1px" : undefined}
+      borderColor={"whiteAlpha.200"}
+    >
+      <Flex alignItems={"center"} justifyContent={"space-between"}>
+        <Link href="/">
+          <MotionBox
+            pos={"relative"}
+            boxSize={{ base: "20", md: "24" }}
+            whileHover={{ scale: 1.2, rotate: 360, duration: 5 }}
+            whileTap={{ rotate: 360 }}
+          >
+            <Image src={Logo} alt="Junel Sacro" layout={"fill"} />
+          </MotionBox>
+        </Link>
+        <DesktopMenu items={navItems} />
+        <MobileMenu items={navItems} />
+      </Flex>
+    </Box>
   );
 };
