@@ -13,7 +13,7 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-
+const date = new Date();
 export const Footer = () => {
   const link = [
     {
@@ -101,7 +101,7 @@ export const Footer = () => {
             </Stack>
           </Box>
         </Flex>
-        <Text py={"10"}>Junel Sacro &copy; 2022</Text>
+        <Text py={"10"}>Junel Sacro &copy; {date.getFullYear()}</Text>
       </Box>
     </>
   );
