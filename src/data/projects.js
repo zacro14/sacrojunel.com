@@ -37,4 +37,17 @@ export const project = [
       { tech: "Typescript" },
     ],
   },
+  {
+    id: 4,
+    title: "Plarium.com Landing Clone",
+    desc: "Clone the of the landing page of plarium.com",
+    githubLink: "https://github.com/zacro14/gamelord_landing",
+    websiteLink: "https://gamelord-landing.vercel.app/",
+    technology: [
+      { tech: "react" },
+      { tech: "next.js" },
+      { tech: "tailwind" },
+      { tech: "Typescript" },
+    ],
+  },
 ];
