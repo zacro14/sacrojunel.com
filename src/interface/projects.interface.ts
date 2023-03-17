@@ -5,7 +5,7 @@ export interface IProject {
   id: number;
   title: string;
   desc: string;
-  image: string;
+  image?: string;
   githubLink: string;
   websiteLink: string;
   technology: ITechnology[];

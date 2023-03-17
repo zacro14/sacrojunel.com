@@ -104,13 +104,17 @@ const Project = (data: IProject) => {
             bgColor={"white"}
             rounded={"md"}
           >
-            <Image
-              src={data.image}
-              alt={data.title}
-              objectFit={"cover"}
-              objectPosition={"-17%"}
-              layout="fill"
-            />
+            {data.image && (
+              <Image
+                src={data.image}
+                alt={data.title ? data.title : data.image ?? "Coming Soon"}
+                objectFit={"cover"}
+                objectPosition={"-17%"}
+                blurDataURL={data.image}
+                placeholder={"blur"}
+                layout="fill"
+              />
+            )}
           </Box>
         </Box>
       </Flex>
