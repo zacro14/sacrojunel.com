@@ -66,14 +66,14 @@ export const Footer = () => {
             </Text>
           </GridItem>
           <Box display={"flex"} flexDir={"column"} flex={"1"}>
-            <Heading pb={"4"} textAlign={"end"}>
+            <Heading pb={"4"} textAlign={{ base: "start", lg: "end" }}>
               Contact
             </Heading>
             <Stack
               alignItems={"center"}
               h={"14"}
               direction={"row"}
-              justifyContent={"flex-end"}
+              justifyContent={{ base: "start", lg: "flex-end" }}
               spacing={{ base: "5", md: "10" }}
             >
               {link.map((item) => (
