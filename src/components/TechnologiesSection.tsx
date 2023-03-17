@@ -10,9 +10,10 @@ import {
   Link,
   Stack,
   Text,
+  Tooltip,
 } from "@chakra-ui/react";
 
-const ItemCard: React.FC<Technology> = ({ ...item }) => {
+const ItemCard = ({ ...item }: Technology) => {
   return (
     <Container
       flex={"1"}
@@ -34,17 +35,18 @@ const ItemCard: React.FC<Technology> = ({ ...item }) => {
           gap={"5"}
         >
           {item.icon.map((icon: IIcon, index: number) => (
-            <Box
-              as={Link}
-              key={index}
-              bgGradient={"linear(to-t, gray.300, gray.200)"}
-              rounded={"2xl"}
-              padding={"5"}
-              isExternal
-              href={icon.link}
-            >
-              <Icon as={icon.icon} boxSize={"10"} color={icon.color}></Icon>
-            </Box>
+            <Tooltip key={index} label={icon.name}>
+              <Box
+                as={Link}
+                bgGradient={"linear(to-t, gray.300, gray.200)"}
+                rounded={"2xl"}
+                padding={"5"}
+                isExternal
+                href={icon.link}
+              >
+                <Icon as={icon.icon} boxSize={"10"} color={icon.color} />
+              </Box>
+            </Tooltip>
           ))}
         </Stack>
       )}

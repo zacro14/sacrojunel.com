@@ -13,8 +13,8 @@ const ProjectsSection = () => {
           Featured Projects
         </Heading>
         <Box mt={"16"}>
-          <Stack>
-            {project.reverse().map((project: IProject) => (
+          <Stack direction={"column-reverse"}>
+            {project.map((project: IProject) => (
               <Project key={project.id} {...project} />
             ))}
           </Stack>
