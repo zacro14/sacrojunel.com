@@ -66,7 +66,7 @@ export const Footer = () => {
             </Text>
           </GridItem>
           <Box display={"flex"} flexDir={"column"} flex={"1"}>
-            <Heading pb={"4"} textAlign={"center"}>
+            <Heading pb={"4"} textAlign={"end"}>
               Contact
             </Heading>
             <Stack
