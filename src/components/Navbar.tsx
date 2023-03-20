@@ -22,6 +22,15 @@ import {
   Center,
   useBreakpointValue,
 } from "@chakra-ui/react";
+import { IconType } from "react-icons";
+
+type NavItems = {
+  id: number;
+  title: string;
+  icon: IconType;
+  size: string;
+  link: string;
+};
 
 const navItems = [
   {
@@ -40,7 +49,7 @@ const navItems = [
   },
 ];
 
-const MobileMenu = ({ items }: any) => {
+const MobileMenu = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const breakpoint = useBreakpointValue({ base: true, md: false });
@@ -57,6 +66,10 @@ const MobileMenu = ({ items }: any) => {
         boxSize={"10"}
         as="button"
         type="button"
+        aria-haspopup="true"
+        aria-expanded={isOpen}
+        aria-controls="nav-menu"
+        id="nav-menu--trigger"
         onClick={onOpen}
       >
         {isOpen ? <CloseIcon boxSize={"6"} /> : <HamburgerIcon boxSize={"8"} />}
@@ -64,14 +77,15 @@ const MobileMenu = ({ items }: any) => {
       <Drawer isOpen={isOpen} placement="bottom" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent
+          id={"nav-menu"}
           bgColor={"gray.800"}
           display={{ base: "block", md: "none" }}
           roundedTop={"lg"}
         >
-          <DrawerBody as={"nav"} py={"5"}>
-            <Stack>
-              {items.map((item: any) => (
-                <Link key={item.id} href={item.link} p={"5"} rounded={"lg"}>
+          <DrawerBody py={"5"}>
+            <Stack as={"nav"}>
+              {navItems.map(({ id, link, icon, title }: NavItems) => (
+                <Link key={id} href={link} p={"5"} rounded={"lg"}>
                   <HStack
                     alignItems={"center"}
                     fontSize={"lg"}
@@ -79,13 +93,9 @@ const MobileMenu = ({ items }: any) => {
                     _hover={{ textDecoration: "none" }}
                   >
                     <Box display={"flex"} alignItems={"center"}>
-                      <Icon
-                        as={item.icon}
-                        textColor={"teal.400"}
-                        boxSize={"5"}
-                      />
+                      <Icon as={icon} textColor={"teal.400"} boxSize={"5"} />
                     </Box>
-                    <Text>{item.title}</Text>
+                    <Text>{title}</Text>
                   </HStack>
                 </Link>
               ))}
@@ -97,7 +107,7 @@ const MobileMenu = ({ items }: any) => {
   );
 };
 
-const DesktopMenu = ({ items }: any) => {
+const DesktopMenu = () => {
   return (
     <Stack
       display={{ base: "none", md: "flex" }}
@@ -106,10 +116,10 @@ const DesktopMenu = ({ items }: any) => {
       fontWeight={"semibold"}
       fontSize={"large"}
     >
-      {items.map((item: any) => (
+      {navItems.map((item) => (
         <Link
           key={item.id}
-          href={item.link || null}
+          href={item.link}
           textDecoration={"none"}
           rounded={"lg"}
           p={"3"}
@@ -188,8 +198,8 @@ export const Navbar = () => {
             </MotionBox>
           </Link>
         </NextLink>
-        <DesktopMenu items={navItems} />
-        <MobileMenu items={navItems} />
+        <DesktopMenu />
+        <MobileMenu />
       </Flex>
     </Box>
   );

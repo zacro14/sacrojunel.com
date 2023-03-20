@@ -25,7 +25,7 @@ export const project = [
   {
     id: 3,
     title: "MusicPhile",
-    desc: "Music App",
+    desc: "Music App,  I created this to practice my skills in typescript and tailwindcss",
     image: "/images/musicphile.png",
     githubLink: "https://github.com/zacro14/musicphile",
     websiteLink:
@@ -40,7 +40,8 @@ export const project = [
   {
     id: 4,
     title: "Plarium.com Landing Page",
-    desc: "Clone the of the landing page of plarium.com",
+    desc: "Clone of the landing page of plarium.com",
+    image: "/images/plarium_clone.png",
     githubLink: "https://github.com/zacro14/gamelord_landing",
     websiteLink: "https://gamelord-landing.vercel.app/",
     technology: [
