@@ -3,11 +3,11 @@ import { RiCodeSLine } from "react-icons/ri";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from "@/images/logo.png";
+import NextLink from "next/link";
 import {
   Box,
-  Divider,
   Drawer,
   DrawerBody,
   DrawerContent,
@@ -19,48 +19,81 @@ import {
   Text,
   useDisclosure,
   Link,
+  Center,
   useBreakpointValue,
 } from "@chakra-ui/react";
 
+const navItems = [
+  {
+    id: 1,
+    title: "Projects",
+    icon: IoLogoAppleAr,
+    size: "4",
+    link: "#projects",
+  },
+  {
+    id: 2,
+    title: "Technologies",
+    icon: RiCodeSLine,
+    size: "5",
+    link: "#technologies",
+  },
+];
+
 const MobileMenu = ({ items }: any) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const breakpoint = useBreakpointValue({ base: true, md: false });
+
+  useEffect(() => {
+    if (isOpen && !breakpoint) {
+      onClose();
+    }
+  }, [breakpoint, isOpen, onClose]);
   return (
-    <Box display={{ md: "none", lg: "none" }} cursor={"pointer"}>
-      <HamburgerIcon boxSize={"8"} onClick={onOpen} />
-      <Drawer isOpen={isOpen} placement="right" onClose={onClose} size={"full"}>
+    <>
+      <Center
+        display={{ base: "flex", md: "none" }}
+        boxSize={"10"}
+        as="button"
+        type="button"
+        onClick={onOpen}
+      >
+        {isOpen ? <CloseIcon boxSize={"6"} /> : <HamburgerIcon boxSize={"8"} />}
+      </Center>
+      <Drawer isOpen={isOpen} placement="bottom" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent
           bgColor={"gray.800"}
-          display={{ base: "block", md: "none", lg: "none" }}
+          display={{ base: "block", md: "none" }}
+          roundedTop={"lg"}
         >
-          <DrawerBody as={"nav"}>
-            <Flex justifyContent={"flex-end"} py={"5"}>
-              <CloseIcon boxSize={"5"} onClick={onClose} />
-            </Flex>
+          <DrawerBody as={"nav"} py={"5"}>
             <Stack>
               {items.map((item: any) => (
-                <Link key={item.id} href={item.link}>
-                  <>
-                    <HStack
-                      alignItems={"center"}
-                      fontSize={"lg"}
-                      spacing={"7"}
-                      _hover={{ textDecoration: "none" }}
-                    >
-                      <Box display={"flex"} alignItems={"center"}>
-                        <Icon as={item.icon} boxSize={"5"} />
-                      </Box>
-                      <Text>{item.title}</Text>
-                    </HStack>
-                    <Divider variant={"dashed"} color={"whiteAlpha.200"} />
-                  </>
+                <Link key={item.id} href={item.link} p={"5"} rounded={"lg"}>
+                  <HStack
+                    alignItems={"center"}
+                    fontSize={"lg"}
+                    spacing={"7"}
+                    _hover={{ textDecoration: "none" }}
+                  >
+                    <Box display={"flex"} alignItems={"center"}>
+                      <Icon
+                        as={item.icon}
+                        textColor={"teal.400"}
+                        boxSize={"5"}
+                      />
+                    </Box>
+                    <Text>{item.title}</Text>
+                  </HStack>
                 </Link>
               ))}
             </Stack>
           </DrawerBody>
         </DrawerContent>
       </Drawer>
-    </Box>
+    </>
   );
 };
 
@@ -74,7 +107,14 @@ const DesktopMenu = ({ items }: any) => {
       fontSize={"large"}
     >
       {items.map((item: any) => (
-        <Link key={item.id} href={item.link || null}>
+        <Link
+          key={item.id}
+          href={item.link || null}
+          textDecoration={"none"}
+          rounded={"lg"}
+          p={"3"}
+          _hover={{ textDecor: "none" }}
+        >
           <Stack
             direction={"row"}
             px={"5"}
@@ -82,8 +122,8 @@ const DesktopMenu = ({ items }: any) => {
             alignItems={"center"}
             _hover={{ textUnderlineOffset: "3px" }}
           >
-            <Icon as={item.icon} boxSize={item.size} />
-            <Text pl={"1"} _hover={{ color: "teal.600" }}>
+            <Icon as={item.icon} textColor={"teal.400"} boxSize={item.size} />
+            <Text pl={"1"} _hover={{ color: "teal.400" }} fontSize={"lg"}>
               {item.title}
             </Text>
           </Stack>
@@ -96,23 +136,6 @@ const DesktopMenu = ({ items }: any) => {
 const MotionBox = motion(Box);
 
 export const Navbar = () => {
-  const navItems = [
-    {
-      id: 1,
-      title: "Projects",
-      icon: IoLogoAppleAr,
-      size: "6",
-      link: "#projects",
-    },
-    {
-      id: 2,
-      title: "Technologies",
-      icon: RiCodeSLine,
-      size: "8",
-      link: "#technologies",
-    },
-  ];
-
   const [navbar, setNavbar] = useState(false);
 
   const scrollBehavior = () => {
@@ -135,27 +158,36 @@ export const Navbar = () => {
     <Box
       as={"header"}
       py={"5"}
-      // pos={navbar ? "absolute" : "fixed"}
+      pos={"fixed"}
       top={0}
+      left={0}
       zIndex={"2"}
-      width={"full"}
+      w="full"
+      paddingX={"6"}
       transition={"all 0.2s ease-in 0s "}
       bgColor={"transparent"}
       backdropFilter={navbar ? "saturate(180%) blur(6px)" : undefined}
       borderBottom={navbar ? "1px" : undefined}
       borderColor={"whiteAlpha.200"}
     >
-      <Flex alignItems={"center"} justifyContent={"space-between"}>
-        <Link href="/">
-          <MotionBox
-            pos={"relative"}
-            boxSize={{ base: "20", md: "24" }}
-            whileHover={{ scale: 1.2, rotate: 360, duration: 5 }}
-            whileTap={{ rotate: 360 }}
-          >
-            <Image src={Logo} alt="Junel Sacro" layout={"fill"} />
-          </MotionBox>
-        </Link>
+      <Flex
+        alignItems={"center"}
+        justifyContent={"space-between"}
+        marginX={"auto"}
+        maxW={"6xl"}
+      >
+        <NextLink href="/">
+          <Link>
+            <MotionBox
+              pos={"relative"}
+              boxSize={{ base: "20", md: "24" }}
+              whileHover={{ scale: 1.2, rotate: 360, duration: 5 }}
+              whileTap={{ rotate: 360 }}
+            >
+              <Image src={Logo} alt="Junel Sacro" layout={"fill"} />
+            </MotionBox>
+          </Link>
+        </NextLink>
         <DesktopMenu items={navItems} />
         <MobileMenu items={navItems} />
       </Flex>

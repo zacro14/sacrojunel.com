@@ -7,7 +7,7 @@ const MotionText = motion(Text);
 const Hero = () => {
   return (
     <>
-      <Box id={" herosection"} pb={"28"} mt="36">
+      <Box id={" herosection"} pb={"28"} mt={{ base: "20", lg: "36" }}>
         <Stack alignItems={"start"} justifyContent={"start"}>
           <Heading
             fontWeight={{ base: "normal", md: "medium" }}
@@ -22,7 +22,7 @@ const Hero = () => {
             display={"flex"}
             flexDir={"column"}
             as={"h1"}
-            fontSize={{ base: "4xl", md: "6xl", lg: "6xl" }}
+            fontSize={{ base: "5xl", md: "6xl", lg: "6xl" }}
             letterSpacing={"tight"}
             fontWeight={"bold"}
           >
@@ -34,7 +34,11 @@ const Hero = () => {
               Junel Sacro
             </Text>
             <Divider border={"1px"} />
-            <Box display={"flex"} gap={{ base: "2", md: "4", lg: "4" }}>
+            <Box
+              display={"flex"}
+              flexDir={{ base: "column", md: "row", lg: "row" }}
+              gap={{ base: "2", md: "4", lg: "4" }}
+            >
               <MotionText
                 as={"span"}
                 bgGradient="linear(to-l, cyan.100, cyan.800)"
