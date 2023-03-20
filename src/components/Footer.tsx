@@ -14,6 +14,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 const date = new Date();
+
 export const Footer = () => {
   const link = [
     {
@@ -40,13 +41,7 @@ export const Footer = () => {
     <>
       <FooterGradient />
       <Divider borderColor={"whiteAlpha.300"} mt={"10"} />
-      <Box
-        width={"full"}
-        m={{ base: "5" }}
-        textAlign={"center"}
-        as={"footer"}
-        paddingX={"6"}
-      >
+      <Box pt={"3"} textAlign={"center"} as={"footer"} paddingX={"6"}>
         <Flex
           marginX={"auto"}
           maxW={"6xl"}

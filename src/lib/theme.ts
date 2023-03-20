@@ -11,6 +11,11 @@ const theme = {
         scrollBehavior: "smooth",
         scrollPaddingTop: "32",
       },
+      "*:focus, *[data-focus]": {
+        outline: "2px solid",
+        outlineColor: "teal.400",
+        outlineOffset: "3px",
+      },
     },
   },
 };
