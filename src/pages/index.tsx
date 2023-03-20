@@ -10,7 +10,6 @@ export default function Home() {
     env: process.env.GA_ID,
   };
 
-  console.log(envi);
   return (
     <>
       <Seo
@@ -18,7 +17,7 @@ export default function Home() {
         description={"This is the portfolio of Junel Sacro"}
       />
       <PageContainer>
-        <Box zIndex={1} mt={"36"} px={"5"}>
+        <Box zIndex={1} mt={"36"} px={"5"} pt={"10"}>
           <Hero />
           <ProjectsSection />
           <TechnologiesSection />

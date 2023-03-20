@@ -40,8 +40,16 @@ export const Footer = () => {
     <>
       <FooterGradient />
       <Divider borderColor={"whiteAlpha.300"} mt={"10"} />
-      <Box m={{ base: "5" }} textAlign={"center"} as={"footer"}>
+      <Box
+        width={"full"}
+        m={{ base: "5" }}
+        textAlign={"center"}
+        as={"footer"}
+        paddingX={"6"}
+      >
         <Flex
+          marginX={"auto"}
+          maxW={"6xl"}
           gap={{ base: "20", md: "10" }}
           flexDir={{ base: "column", md: "row" }}
           textAlign={"start"}

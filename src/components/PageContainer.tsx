@@ -7,18 +7,23 @@ interface PageProps {
   children?: React.ReactNode;
   gradient?: string;
 }
-export const PageContainer: React.FC<PageProps> = ({ children, gradient }) => {
+export const PageContainer = ({ children, gradient }: PageProps) => {
   return (
-    <>
-      <Box mx={{ base: "5", md: "20", lg: "56" }}>
-        <Navbar />
-        <MainGradient />
-        {gradient}
-        <Box as="main" id="content" position="relative" zIndex={1}>
-          {children}
-        </Box>
-        <Footer />
+    <Box>
+      <Navbar />
+      {/* <MainGradient /> */}
+      {gradient}
+      <Box
+        marginX={"auto"}
+        maxW={"6xl"}
+        as="main"
+        id="content"
+        position="relative"
+        zIndex={1}
+      >
+        {children}
       </Box>
-    </>
+      <Footer />
+    </Box>
   );
 };

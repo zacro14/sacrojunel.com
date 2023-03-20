@@ -31,7 +31,7 @@ const ItemCard = ({ ...item }: Technology) => {
           direction={"row"}
           alignItems={"center"}
           justifyContent={"center"}
-          flexWrap={{ base: "wrap" }}
+          flexWrap={{ base: "wrap", md: "wrap" }}
           gap={"5"}
         >
           {item.icon.map((icon: IIcon, index: number) => (

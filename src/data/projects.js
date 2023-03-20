@@ -39,7 +39,7 @@ export const project = [
   },
   {
     id: 4,
-    title: "Plarium.com Landing Clone",
+    title: "Plarium.com Landing Page",
     desc: "Clone the of the landing page of plarium.com",
     githubLink: "https://github.com/zacro14/gamelord_landing",
     websiteLink: "https://gamelord-landing.vercel.app/",
