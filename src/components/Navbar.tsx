@@ -1,5 +1,5 @@
 import { IoLogoAppleAr } from "react-icons/io5";
-import { RiCodeSLine } from "react-icons/ri";
+import { RiCodeSLine, RiHomeSmileLine } from "react-icons/ri";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -33,6 +33,13 @@ type NavItems = {
 };
 
 const navItems = [
+  {
+    id: 0,
+    title: "Home",
+    icon: RiHomeSmileLine,
+    size: "5",
+    link: "#home",
+  },
   {
     id: 1,
     title: "Projects",

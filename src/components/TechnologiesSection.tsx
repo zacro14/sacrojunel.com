@@ -3,11 +3,13 @@ import { items } from "@/data/tecnologies";
 import { IIcon, Technology } from "src/interface/technology.interface";
 import {
   Box,
+  Center,
   Container,
   Flex,
   Heading,
   Icon,
   Link,
+  SimpleGrid,
   Stack,
   Text,
   Tooltip,
@@ -15,7 +17,7 @@ import {
 
 const ItemCard = ({ ...item }: Technology) => {
   return (
-    <Container
+    <Box
       flex={"1"}
       borderColor={"whiteAlpha.200"}
       bgColor={"whiteAlpha.200"}
@@ -26,31 +28,30 @@ const ItemCard = ({ ...item }: Technology) => {
         {item.title}
       </Heading>
 
-      {item.icon !== null && (
-        <Stack
-          direction={"row"}
-          alignItems={"center"}
-          justifyContent={"center"}
-          flexWrap={{ base: "wrap", md: "wrap" }}
-          gap={"5"}
-        >
-          {item.icon.map((icon: IIcon, index: number) => (
-            <Tooltip key={index} label={icon.name}>
-              <Box
-                as={Link}
-                bgGradient={"linear(to-t, gray.300, gray.200)"}
-                rounded={"2xl"}
-                padding={"5"}
-                isExternal
-                href={icon.link}
-              >
-                <Icon as={icon.icon} boxSize={"10"} color={icon.color} />
-              </Box>
-            </Tooltip>
-          ))}
-        </Stack>
-      )}
-    </Container>
+      <Stack
+        direction={"row"}
+        alignItems={"center"}
+        justifyContent={"center"}
+        flexWrap={"wrap"}
+        gap={"5"}
+      >
+        {item.icon.map((icon: IIcon, index: number) => (
+          <Tooltip key={index} label={icon.name}>
+            <Center
+              boxSize={"24"}
+              as={Link}
+              bgGradient={"linear(to-t, gray.300, gray.200)"}
+              rounded={"2xl"}
+              padding={"5"}
+              isExternal
+              href={icon.link}
+            >
+              <Icon as={icon.icon} boxSize={"10"} color={icon.color} />
+            </Center>
+          </Tooltip>
+        ))}
+      </Stack>
+    </Box>
   );
 };
 
@@ -65,15 +66,11 @@ const TechnologiesSection = () => {
           In my Journey as a <Text as={"b"}>Front End Web Developer</Text>, so
           far this are the technologies that I used.
         </Text>
-        <Flex
-          flexDirection={{ base: "column", md: "row" }}
-          gap={"10"}
-          mt={"16"}
-        >
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={"10"} mt={"16"}>
           {items.map((item, index) => (
             <ItemCard key={index} {...item} />
           ))}
-        </Flex>
+        </SimpleGrid>
       </Box>
     </>
   );

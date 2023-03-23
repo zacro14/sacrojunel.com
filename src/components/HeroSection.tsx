@@ -7,7 +7,7 @@ const MotionText = motion(Text);
 const Hero = () => {
   return (
     <>
-      <Box id={" herosection"} pb={"28"} mt={{ base: "20", lg: "36" }}>
+      <Box id="home" pb={"28"} mt={{ base: "20", lg: "36" }}>
         <Stack alignItems={"start"} justifyContent={"start"}>
           <Heading
             fontWeight={{ base: "normal", md: "medium" }}

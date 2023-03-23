@@ -95,7 +95,6 @@ const Project = (data: IProject) => {
         <Box
           flex={{ md: "1" }}
           pos={"relative"}
-          // bgGradient={"linear(to-r, teal.200, pink.200)"}
           bg="linear-gradient(180deg, rgba(33, 33, 33, 0) 0%, rgb(8, 111, 131, 0.3) 45.31%, rgba(19, 19, 19, 0) 100%)"
           height={{ base: "80", md: "25rem" }}
           overflow={"hidden"}
