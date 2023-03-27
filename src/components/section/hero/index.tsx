@@ -62,6 +62,23 @@ const Hero = () => {
               </Text>
             </Box>
           </Heading>
+          <Box
+            pt={"10"}
+            textColor={"whiteAlpha.700"}
+            fontSize={"lg"}
+            fontWeight={"medium"}
+            fontFamily={"body"}
+          >
+            <Text>Hi welcome to my site, How are you today?</Text>
+            <Text>
+              Ooh wait!, I would like to introduced my self, My name is Junel
+              Sacro
+            </Text>
+            <Text>
+              A Web Developer learning typescript and discovering the world of
+              the web.
+            </Text>
+          </Box>
         </Stack>
       </Box>
     </>
