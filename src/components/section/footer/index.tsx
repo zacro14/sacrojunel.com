@@ -1,4 +1,4 @@
-import { FooterGradient } from "./gradient";
+import { FooterGradient } from "../../gradient";
 import { FaFacebook, FaLinkedin, FaGithub } from "react-icons/fa";
 import { FaPizzaSlice } from "react-icons/fa";
 import { BsRainbow } from "react-icons/bs";

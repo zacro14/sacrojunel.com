@@ -113,7 +113,6 @@ const Project = (data: IProject) => {
           >
             {data.image && (
               <Image
-                style={{ top: "10px" }}
                 src={data.image}
                 alt={data.title ? data.title : data.image ?? "Coming Soon"}
                 objectFit={"cover"}
