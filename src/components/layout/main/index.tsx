@@ -1,6 +1,6 @@
+import Seo from "@/components/seo";
 import { Box } from "@chakra-ui/react";
 import React from "react";
-import Seo from "./Seo";
 
 interface Children {
   children: React.ReactNode;
