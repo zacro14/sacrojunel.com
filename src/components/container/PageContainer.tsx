@@ -1,7 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import React from "react";
 import { Footer, Navbar } from "@/components/index";
-import { MainGradient } from "../gradient";
 
 interface PageProps {
   children?: React.ReactNode;
