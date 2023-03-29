@@ -1,6 +1,9 @@
-import { AiFillGithub } from "react-icons/ai";
-import { BiGlobe } from "react-icons/bi";
 import Image from "next/image";
+import React from "react";
+import { motion } from "framer-motion";
+import { IProject } from "src/interface/projects.interface";
+import Nextlink from "next/link";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 import {
   Box,
   Flex,
@@ -12,13 +15,10 @@ import {
   Tag,
   Text,
 } from "@chakra-ui/react";
-import React from "react";
-import { motion } from "framer-motion";
-import { IProject } from "src/interface/projects.interface";
-import Nextlink from "next/link";
-import { ExternalLinkIcon } from "@chakra-ui/icons";
 
-const Project = (data: IProject) => {
+const Project = (props: IProject) => {
+  const { title, desc, technology, image, links } = props;
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -34,12 +34,12 @@ const Project = (data: IProject) => {
             fontWeight={"bold"}
             pb={"5"}
           >
-            {data.title}
+            {title}
           </Heading>
-          <Text fontSize={"lg"}>{data.desc}</Text>
+          <Text fontSize={"lg"}>{desc}</Text>
 
           <HStack pt={"6"} flexWrap={"wrap"} gap={"2"} spacing={"unset"}>
-            {data.technology?.map((tech, index: number) => (
+            {technology?.map((tech, index: number) => (
               <Tag
                 key={index}
                 rounded={"full"}
@@ -53,42 +53,27 @@ const Project = (data: IProject) => {
           </HStack>
 
           <HStack pt={"8"} textUnderlineOffset={"3px"} spacing={"7"}>
-            <Nextlink href={data.githubLink} passHref>
-              <Link
-                variant={"link"}
-                display={"flex"}
-                textDecor={"underline"}
-                alignItems={"center"}
-                isExternal
-              >
-                <Icon
-                  color={"whiteAlpha.600"}
-                  boxSize={"6"}
-                  as={AiFillGithub}
-                  mr={"3"}
-                />
-                Github
-                <ExternalLinkIcon ml={"1"} />
-              </Link>
-            </Nextlink>
-            <Nextlink href={data.websiteLink} passHref>
-              <Link
-                variant={"link"}
-                display={"flex"}
-                textDecor={"underline"}
-                alignItems={"center"}
-                isExternal
-              >
-                <Icon
-                  color={"whiteAlpha.600"}
-                  boxSize={"6"}
-                  mr={"3"}
-                  as={BiGlobe}
-                />
-                Website
-                <ExternalLinkIcon ml={"1"} />
-              </Link>
-            </Nextlink>
+            {links.map(({ name, icon, link }) => (
+              <Nextlink key={name} href={link} passHref>
+                <Link
+                  variant={"link"}
+                  display={"flex"}
+                  textDecor={"underline"}
+                  alignItems={"center"}
+                  p={"2"}
+                  rounded={"md"}
+                  isExternal
+                >
+                  <Icon
+                    color={"whiteAlpha.600"}
+                    boxSize={"6"}
+                    as={icon}
+                    mr={"3"}
+                  />
+                  {name} <ExternalLinkIcon ml={"1"} />
+                </Link>
+              </Nextlink>
+            ))}
           </HStack>
         </Stack>
 
@@ -111,13 +96,13 @@ const Project = (data: IProject) => {
             rounded={"md"}
             overflow={"hidden"}
           >
-            {data.image && (
+            {image && (
               <Image
-                src={data.image}
-                alt={data.title ? data.title : data.image ?? "Coming Soon"}
+                src={image}
+                alt={title ? title : image ?? "Coming Soon"}
                 objectFit={"cover"}
                 objectPosition={"-17%"}
-                blurDataURL={data.image}
+                blurDataURL={image}
                 placeholder={"blur"}
                 layout={"fill"}
               />
