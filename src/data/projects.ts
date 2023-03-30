@@ -129,4 +129,34 @@ export const project = [
       { tech: "typescript" },
     ],
   },
+
+  {
+    id: 5,
+    title: "Porfolio Website",
+    desc: "Created this for my online presence",
+    image: "/screenshots/porfolio.png",
+    links: [
+      {
+        name: Links.github,
+        link: "https://github.com/zacro14/sacrojunel.com",
+        icon: Icons.github,
+      },
+      {
+        name: Links.website,
+        link: "https://sacrojunel-com.vercel.app/",
+        icon: Icons.website,
+      },
+      {
+        name: Links.stackblitz,
+        link: "https://stackblitz.com/github/zacro14/GameLord",
+        icon: Icons.stackblitz,
+      },
+    ],
+    technology: [
+      { tech: "react" },
+      { tech: "next.js" },
+      { tech: "chakraui" },
+      { tech: "typescript" },
+    ],
+  },
 ];

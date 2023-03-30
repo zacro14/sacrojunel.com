@@ -102,7 +102,7 @@ const Project = (props: IProject) => {
                 src={image}
                 alt={title ? title : image ?? "Coming Soon"}
                 objectFit={"cover"}
-                objectPosition={"-17%"}
+                objectPosition={"-12%"}
                 blurDataURL={image}
                 placeholder={"blur"}
                 layout={"fill"}
