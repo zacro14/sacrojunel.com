@@ -1,24 +1,8 @@
-## Portfolio Website
+### PORFOLIO
 
-1.  Projects
-2.  Stacks used
+Welcome to my portfolio
 
-## Projects
+`typescript`, `nextjs`, `chakraUi`
 
-1. MensCorner
-   An Ecommerce Front End that users can add to basket the produucts.
 
-2.Zhacks Foody
-Food Deliveryy front end that uses firestore for backend.
-
-3.MusicPhile
-Music App
-
-## Technologies
-
-1. Front End
-   React , Next JS, Typescript
-
-2. Styling
-   Styled Components
-   Chakra Ui
+![porfolio](https://user-images.githubusercontent.com/88084088/228801723-91229d3f-1a4c-435f-89f5-97d66baee027.png)
