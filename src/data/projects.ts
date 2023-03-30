@@ -97,7 +97,7 @@ export const project = [
       { tech: "react" },
       { tech: "next.js" },
       { tech: "tailwind" },
-      { tech: "Typescript" },
+      { tech: "typescript" },
     ],
   },
   {
@@ -126,7 +126,7 @@ export const project = [
       { tech: "react" },
       { tech: "next.js" },
       { tech: "tailwind" },
-      { tech: "Typescript" },
+      { tech: "typescript" },
     ],
   },
 ];
