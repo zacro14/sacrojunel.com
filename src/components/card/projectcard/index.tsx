@@ -45,7 +45,8 @@ const Project = (props: IProject) => {
                 rounded={"full"}
                 bgColor={"whiteAlpha.300"}
                 color={"gray.100"}
-                p={"2"}
+                py={"2"}
+                px={"4"}
               >
                 {tech.tech}
               </Tag>
