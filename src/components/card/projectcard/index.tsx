@@ -11,6 +11,7 @@ import {
   HStack,
   Icon,
   Link,
+  SimpleGrid,
   Stack,
   Tag,
   Text,
@@ -53,13 +54,17 @@ const Project = (props: IProject) => {
             ))}
           </HStack>
 
-          <HStack pt={"8"} textUnderlineOffset={"3px"} spacing={"7"}>
+          <SimpleGrid
+            pt={"8"}
+            textDecoration={""}
+            spacing={{ base: 3, md: "5", lg: "7" }}
+            columns={{ base: 2, md: 2, lg: 3 }}
+          >
             {links.map(({ name, icon, link }) => (
               <Nextlink key={name} href={link} passHref>
                 <Link
                   variant={"link"}
                   display={"flex"}
-                  textDecor={"underline"}
                   alignItems={"center"}
                   p={"2"}
                   rounded={"md"}
@@ -69,13 +74,13 @@ const Project = (props: IProject) => {
                     color={"whiteAlpha.600"}
                     boxSize={"6"}
                     as={icon}
-                    mr={"3"}
+                    mr={{ base: "1", md: "2", lg: "3" }}
                   />
                   {name} <ExternalLinkIcon ml={"1"} />
                 </Link>
               </Nextlink>
             ))}
-          </HStack>
+          </SimpleGrid>
         </Stack>
 
         <Box
@@ -102,7 +107,7 @@ const Project = (props: IProject) => {
                 src={image}
                 alt={title ? title : image ?? "Coming Soon"}
                 objectFit={"cover"}
-                objectPosition={"-17%"}
+                objectPosition={"-12%"}
                 blurDataURL={image}
                 placeholder={"blur"}
                 layout={"fill"}

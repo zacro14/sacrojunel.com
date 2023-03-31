@@ -4,8 +4,6 @@ import { IIcon, Technology } from "src/interface/technology.interface";
 import {
   Box,
   Center,
-  Container,
-  Flex,
   Heading,
   Icon,
   Link,

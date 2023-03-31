@@ -34,7 +34,12 @@ export const items = [
         color: "#65CACC",
         link: "https://chakra-ui.com/",
       },
-      { name: "TailwindCss", icon: SiTailwindcss, color: "rgb(56, 189, 248)" },
+      {
+        name: "TailwindCss",
+        icon: SiTailwindcss,
+        color: "rgb(56, 189, 248)",
+        link: "https://tailwindcss.com/",
+      },
       {
         name: "React",
         icon: FaReact,
