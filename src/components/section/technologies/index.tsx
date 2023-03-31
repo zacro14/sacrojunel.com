@@ -1,6 +1,6 @@
 import React from "react";
 import { items } from "@/data/tecnologies";
-import { IIcon, Technology } from "src/interface/technology.interface";
+import { Technology } from "src/interface/technology.interface";
 import {
   Box,
   Center,
@@ -8,7 +8,6 @@ import {
   Icon,
   Link,
   SimpleGrid,
-  Stack,
   Text,
   Tooltip,
 } from "@chakra-ui/react";
@@ -22,18 +21,25 @@ const ItemCard = ({ ...item }: Technology) => {
       p={"5"}
       rounded={"2xl"}
     >
-      <Heading as={"h3"} fontSize={"large"} pb={"5"} textAlign={"center"}>
+      <Heading
+        as={"h3"}
+        fontSize={"large"}
+        pb={"5"}
+        textAlign={"center"}
+        mb={"5"}
+      >
         {item.title}
       </Heading>
 
-      <Stack
-        direction={"row"}
+      <SimpleGrid
+        columns={{ base: 4, md: 3, lg: 3 }}
+        spacing={{ base: 2, md: 3, lg: 4 }}
         alignItems={"center"}
         justifyContent={"center"}
         flexWrap={"wrap"}
         gap={"5"}
       >
-        {item.icon.map((icon: IIcon, index: number) => (
+        {item.icon.map(({ link, icon, color }, index) => (
           <Tooltip key={index} label={icon.name}>
             <Center
               boxSize={"24"}
@@ -42,13 +48,13 @@ const ItemCard = ({ ...item }: Technology) => {
               rounded={"2xl"}
               padding={"5"}
               isExternal
-              href={icon.link}
+              href={link}
             >
-              <Icon as={icon.icon} boxSize={"10"} color={icon.color} />
+              <Icon as={icon} boxSize={"10"} color={color} />
             </Center>
           </Tooltip>
         ))}
-      </Stack>
+      </SimpleGrid>
     </Box>
   );
 };
