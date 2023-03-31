@@ -1,9 +1,9 @@
 import { Box } from "@chakra-ui/react";
 import ProjectsSection from "@/components/section/project";
 import { PageContainer } from "@/components/index";
-import TechnologiesSection from "@/components/section/Technologies";
 import Hero from "@/components/section/hero";
 import Seo from "@/components/seo";
+import TechnologiesSection from "@/components/section/technologies";
 
 export default function Home() {
   const envi = {

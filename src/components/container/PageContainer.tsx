@@ -8,7 +8,7 @@ interface PageProps {
 }
 export const PageContainer = ({ children, gradient }: PageProps) => {
   return (
-    <Box>
+    <Box minWidth={"240px"}>
       <Navbar />
       {/* <MainGradient /> */}
       {gradient}
