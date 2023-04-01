@@ -6,7 +6,7 @@ import { project } from "../../../data/projects";
 const ProjectsSection = () => {
   return (
     <>
-      <SpanGradient />
+      {/* <SpanGradient /> */}
       <Box as={"section"} id={"projects"} height={"auto"} pt={"10"}>
         <Heading fontSize={{ base: "4xl", md: "5xl" }}>
           Featured Projects

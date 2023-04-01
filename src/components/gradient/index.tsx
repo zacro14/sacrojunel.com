@@ -20,11 +20,11 @@ export function MainGradient() {
   return (
     <Box
       zIndex={0}
-      width="100%"
+      width="full"
       position="absolute"
       top="0"
       left="0"
-      height="680px"
+      height="1000px"
       pointerEvents="none"
       bg="radial-gradient(53.09% 53.09% at 50% 37.57%, rgb(8, 111, 131, 0.3) 0%, rgb(45, 55, 72, 0) 100%);"
     />

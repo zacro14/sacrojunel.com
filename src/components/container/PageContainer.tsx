@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import React from "react";
-import { Footer, Navbar } from "@/components/index";
+import { Footer, MainGradient, Navbar } from "@/components/index";
 
 interface PageProps {
   children?: React.ReactNode;
@@ -10,7 +10,7 @@ export const PageContainer = ({ children, gradient }: PageProps) => {
   return (
     <Box minWidth={"240px"}>
       <Navbar />
-      {/* <MainGradient /> */}
+      <MainGradient />
       {gradient}
       <Box
         marginX={"auto"}
